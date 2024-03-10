@@ -23,19 +23,16 @@ $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <div class="formDiv">
                 <form action="add_contact.php" method="post">
                     <label for="">First Name</label>
-                    <input type="text" name="firstName" id="" required>
+                    <input type="text" name="firstName" required>
                     <label for="">Middle Name</label>
-                    <input type="text" name="MiddleName" id="">
+                    <input type="text" name="middleName">
                     <label for="">Last Name</label>
-                    <input type="text" name="lastName" id="" required>
+                    <input type="text" name="lastName" required>
                     <br>
                     <label for="">Phone Number</label>
-                    <input type="number" name="phone" id="" required>
+                    <input type="number" name="phone" required>
                     <br>
                     <button type="submit">Add</button>
-                    <!-- <button>Search</button>
-                    <button>Edit</button>
-                    <button>Delete</button> -->
                 </form>
             </div>
         </section>
@@ -49,6 +46,9 @@ $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 echo "<th>Middle Name</th>";
                 echo "<th>Last Name</th>";
                 echo "<th>Phone Number</th>";
+                echo "<th>EDIT</th>";
+                echo "<th>DELETE</th>";
+
                 echo "</tr>";
 
 
@@ -58,8 +58,10 @@ $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     echo "<td>" . $result["middle_name"] . "</td>";
                     echo "<td>" . $result["last_name"] . "</td>";
                     echo "<td>" . $result["phone_number"] . "</td>";
-                    // echo "<td>" . "<button>Edit</button>" . "</td>";
-                    echo "<td> <a href=''></a> </td>";
+                    echo "<td> <a href='edit_contact.php?id=" . $result['id'] . "'>Edit</a> </td>";
+
+                    echo "<td> <a href='delete_contact.php?id=" . $result['id'] . "'>Delete</a> </td>";
+
 
                     echo "</tr>";
 
